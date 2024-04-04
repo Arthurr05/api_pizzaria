@@ -7,4 +7,7 @@ router.get("/", (req, res) => {
 const clienteController = require('./clienteController');
 
 router.get('/clientes', clienteController.listarClientes);
+router.get('/clientes/:cpf',clienteController.buscarCliente);
+router.post('/clientes/:cpf', clienteController.atualizarCliente);
+router.delete('/clientes/:cpf', clienteController.deletarCliente);
 module.exports = router;
