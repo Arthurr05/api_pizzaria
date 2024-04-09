@@ -17,7 +17,7 @@ const clienteSchema = Joi.object({
 exports.listarClientes = (req, res) => {
     db.query('SELECT * FROM cliente', (err, result) => {
         if (err) {
-            console.error('Erri ai buscar clientes:', err);
+            console.error('Erro ao buscar clientes:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
             return;
         };
@@ -27,7 +27,7 @@ exports.listarClientes = (req, res) => {
 
 exports.buscarCliente = (req, res) => {
     const { cpf } = req.params; //acessa o cpf do cliente na rota
-    db.query('SELECT * FROM cliente WHERE cpf = ?', cpf, (err, result) => {
+    db.query('SELECT * FROM cliente WHERE id_produto = ?', cpf, (err, result) => {
         if (err) {
             console.error('Erro ao buscar cliente:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
